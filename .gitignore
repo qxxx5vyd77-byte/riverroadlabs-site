@@ -1,0 +1,6 @@
+# This repo is a landing page, not a CDN. Media belongs elsewhere.
+*.mp4
+*.mov
+*.webm
+*.zip
+.DS_Store

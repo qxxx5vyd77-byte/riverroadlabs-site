@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · River Road Labs</title>
+<meta name="description" content="How River Road Labs apps handle your data: no accounts, no analytics, no ads, no tracking. Links to each app's own privacy policy.">
+<link rel="canonical" href="https://riverroadlabs.app/privacy.html">
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+:root{
+  --paper:#faf6ec; --paper-2:#f3ecdd; --ink:#3a3226; --ink-2:#6b5f4e;
+  --rule:#e0d6c2; --accent:#8b5e3c;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#17140f; --paper-2:#211c15; --ink:#f0e9dc; --ink-2:#b3a894;
+        --rule:#3a3226; --accent:#d0a179;}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:17px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;}
+.wrap{max-width:680px; margin:0 auto; padding:0 20px}
+header{padding:56px 0 22px}
+.back{font-size:.875rem; color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--rule)}
+.back:hover{color:var(--accent)}
+h1{font-family:var(--serif); font-weight:400; font-size:clamp(1.75rem,5vw,2.25rem);
+   margin:22px 0 6px; line-height:1.2}
+.sub{margin:0; color:var(--ink-2); font-size:.9375rem}
+hr{height:1px; background:var(--rule); border:0; margin:30px 0}
+h2{font-family:var(--serif); font-weight:600; font-size:1.1875rem; margin:34px 0 10px}
+p{margin:0 0 14px}
+ul{margin:0 0 14px; padding-left:1.2em}
+li{margin:0 0 7px}
+a{color:var(--accent)}
+.policies{list-style:none; padding:0; margin:0}
+.policies li{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 10px;
+  padding:11px 0; border-bottom:1px solid var(--rule); margin:0;
+}
+.policies .app{font-weight:600; font-size:.9375rem}
+.policies .note{color:var(--ink-2); font-size:.8125rem; flex:1 1 100%}
+footer{margin:48px 0 64px; padding-top:22px; border-top:1px solid var(--rule);
+  color:var(--ink-2); font-size:.8125rem; line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="./">← River Road Labs</a>
+  <h1>Privacy</h1>
+  <p class="sub">Last updated 3 August 2026</p>
+</header>
+
+<hr>
+
+<p>River Road Labs is one person making small iOS apps. This page describes what all of
+them have in common. Each app also has its own policy, linked at the bottom — those are
+the authoritative ones, and where an app does something specific, it says so there.</p>
+
+<h2>What every app has in common</h2>
+<ul>
+  <li><strong>No accounts.</strong> Nothing to sign up for, no sign-in, no profile.</li>
+  <li><strong>No analytics, no advertising, no tracking, no third-party SDKs.</strong></li>
+  <li><strong>No servers.</strong> I don't run any. There is no place for your data to be
+      collected, because there is nowhere for it to go.</li>
+  <li><strong>Your content stays on your device</strong> — settings, progress, saved cities,
+      workout history, logs — stored on your phone and in your own device backups.</li>
+  <li><strong>Nothing is sold or shared.</strong> There is nothing to sell.</li>
+</ul>
+
+<h2>The exception worth naming</h2>
+
+<p>A few apps need live information that can only come from somewhere else, so they make a
+request directly from your device to a third party. I never see those requests, but the
+third party does, and their privacy policy governs their end:</p>
+
+<ul>
+  <li><strong>Weather Gnome</strong> sends coordinates to
+      <a href="https://open-meteo.com/en/terms">Open-Meteo</a> to fetch a forecast.
+      Location access is optional — you can search for cities by name instead.</li>
+  <li><strong>Stock Gnome</strong> requests public market data from Yahoo Finance for the
+      ticker symbols you add. The request carries no personal information beyond what any
+      web request carries, such as your IP address, which I never receive.</li>
+</ul>
+
+<p>Every other app makes no network requests in normal use. ZoneCycle talks only to your
+own fitness equipment over Bluetooth, and that data never leaves your phone.</p>
+
+<h2>Children</h2>
+<p>The apps collect no data from anyone, children included.</p>
+
+<h2>Changes</h2>
+<p>If this ever changes, the updated version will be posted at this address, with the date
+above revised.</p>
+
+<h2>Contact</h2>
+<p>Questions about any of this go to
+<a href="mailto:MatthewMalham@hotmail.com">MatthewMalham@hotmail.com</a>.</p>
+
+<h2>Each app's own policy</h2>
+<ul class="policies">
+  <li><span class="app">Weather Gnome</span>
+      <a href="https://qxxx5vyd77-byte.github.io/gnome-weather/privacy.html">policy →</a></li>
+  <li><span class="app">100 Kanji</span>
+      <a href="https://qxxx5vyd77-byte.github.io/kanji-100-site/privacy.html">policy →</a></li>
+  <li><span class="app">Times Table 400</span>
+      <a href="https://qxxx5vyd77-byte.github.io/timestable400-site/privacy.html">policy →</a></li>
+  <li><span class="app">Softly</span>
+      <a href="https://qxxx5vyd77-byte.github.io/softly/privacy.html">policy →</a></li>
+  <li><span class="app">Stock Gnome</span>
+      <a href="https://qxxx5vyd77-byte.github.io/stock-gnome-site/privacy.html">policy →</a></li>
+  <li><span class="app">ZoneCycle</span>
+      <a href="https://qxxx5vyd77-byte.github.io/zonecycle-site/privacy.html">policy →</a></li>
+  <li><span class="app">WARDIAL</span>
+      <a href="https://qxxx5vyd77-byte.github.io/wardial-site/privacy.html">policy →</a></li>
+  <li><span class="app">Hard Time</span>
+      <a href="https://qxxx5vyd77-byte.github.io/hardtime-site/privacy.html">policy →</a></li>
+  <li><span class="app">QSO Globe</span>
+      <a href="https://qsoglobe.com/privacy.html">policy →</a></li>
+</ul>
+
+<footer>
+  © 2026 Matthew Malham · River Road Labs<br>
+  <a href="./">riverroadlabs.app</a>
+</footer>
+
+</div>
+</body>
+</html>

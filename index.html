@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>River Road Labs — artisanally crafted iOS apps</title>
+<meta name="description" content="Artisanally crafted iOS apps. Ten of them: cozy weather and market gnomes, bedtime stories, kanji, mental math, interval training, a ham radio logger, and a retro terminal.">
+<link rel="canonical" href="https://riverroadlabs.app/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://riverroadlabs.app/">
+<meta property="og:title" content="River Road Labs — artisanally crafted iOS apps">
+<meta property="og:description" content="Seven apps on the App Store, three in review. Designed and built by one person.">
+<meta property="og:image" content="https://riverroadlabs.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="River Road Labs — artisanally crafted iOS apps">
+<meta name="twitter:description" content="Seven apps on the App Store, three in review. Designed and built by one person.">
+<meta name="twitter:image" content="https://riverroadlabs.app/og.jpg">
+
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<style>
+:root{
+  --paper:#faf6ec; --paper-2:#f3ecdd; --ink:#3a3226; --ink-2:#6b5f4e;
+  --rule:#e0d6c2; --accent:#8b5e3c; --shadow:rgba(58,50,38,.10);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#17140f; --paper-2:#211c15; --ink:#f0e9dc; --ink-2:#b3a894;
+    --rule:#3a3226; --accent:#d0a179; --shadow:rgba(0,0,0,.45);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:17px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px; margin:0 auto; padding:0 20px}
+
+/* ---------- header ---------- */
+header{padding:64px 0 34px; text-align:center}
+.wordmark{
+  font-family:var(--serif); font-weight:400;
+  font-size:clamp(2rem,7vw,3rem); line-height:1.1; letter-spacing:.005em;
+  margin:0;
+}
+.rule{height:1px; background:var(--rule); border:0; margin:22px auto; max-width:120px}
+.tagline{margin:0 auto; max-width:34em; color:var(--ink-2); font-size:1.0625rem}
+.count{
+  margin:14px 0 0; font-family:var(--serif); font-style:italic;
+  color:var(--ink-2); font-size:1rem;
+}
+
+/* ---------- section headings ---------- */
+.shelf-label{
+  display:flex; align-items:center; gap:14px;
+  margin:44px 0 18px;
+  font-size:.75rem; text-transform:uppercase; letter-spacing:.14em;
+  color:var(--ink-2); font-weight:600;
+}
+.shelf-label::after{content:""; flex:1; height:1px; background:var(--rule)}
+
+/* ---------- grid ---------- */
+.grid{display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(310px,1fr))}
+.tile{
+  display:flex; align-items:center; gap:16px;
+  padding:14px; border-radius:14px;
+  background:var(--paper-2); border:1px solid var(--rule);
+  text-decoration:none; color:inherit;
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+a.tile:hover,a.tile:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px var(--shadow);
+  border-color:var(--accent);
+}
+a.tile:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.tile img{
+  width:64px; height:64px; flex:none; border-radius:22.37%;
+  box-shadow:0 1px 2px var(--shadow), inset 0 0 0 1px rgba(128,110,80,.22);
+}
+.t-body{min-width:0}
+.t-name{
+  font-family:var(--serif); font-size:1.0625rem; font-weight:600;
+  margin:0 0 3px; line-height:1.25;
+}
+.t-line{margin:0; font-size:.875rem; line-height:1.4; color:var(--ink-2)}
+.t-meta{
+  margin:7px 0 0; font-size:.6875rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink-2); opacity:.85;
+}
+.t-meta .paid{color:var(--accent); font-weight:600}
+
+/* ---------- in-review shelf ---------- */
+.soon .tile{cursor:default}
+.soon .tile img{filter:grayscale(.55); opacity:.6}
+.soon .t-meta{color:var(--accent); opacity:1}
+
+/* ---------- footer ---------- */
+footer{margin:56px 0 72px; padding-top:30px; border-top:1px solid var(--rule)}
+.badge-band{text-align:center; margin-bottom:30px}
+.badge-chip{
+  display:inline-block; padding:12px 18px; border-radius:12px;
+  background:#fff; border:1px solid var(--rule);
+}
+.badge-chip img{display:block; height:40px; width:auto}
+.f-links{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:10px 22px;
+  margin:0 0 18px; padding:0; list-style:none; font-size:.9375rem;
+}
+.f-links a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--rule)}
+.f-links a:hover,.f-links a:focus-visible{color:var(--accent); border-bottom-color:var(--accent)}
+.colophon{text-align:center; color:var(--ink-2); font-size:.8125rem; margin:0; line-height:1.7}
+#support{scroll-margin-top:24px}
+
+@media (max-width:420px){
+  header{padding:44px 0 26px}
+  .tile{gap:13px; padding:12px}
+  .tile img{width:56px; height:56px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1 class="wordmark">River Road Labs</h1>
+  <hr class="rule">
+  <p class="tagline">Artisanally crafted iOS apps by Matthew Malham — written, drawn, and shipped by one person, one at a time.</p>
+  <p class="count">Seven on the App Store. Three in review.</p>
+</header>
+
+<main>
+  <h2 class="shelf-label">On the App Store</h2>
+  <div class="grid">
+
+    <a class="tile" data-appid="6759417050" href="https://apps.apple.com/us/app/id6759417050">
+      <img src="icons/weather-gnome.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">Weather Gnome: Cozy Forecast</p>
+        <p class="t-line">Every forecast deserves a gnome.</p>
+        <p class="t-meta">Weather · Free</p>
+      </div>
+    </a>
+
+    <a class="tile" data-appid="6759027737" href="https://apps.apple.com/us/app/id6759027737">
+      <img src="icons/kanji-100.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">100 Kanji: Japanese N5 Starter</p>
+        <p class="t-line">Your first hundred kanji, with Mochi the shiba inu alongside you.</p>
+        <p class="t-meta">Education · Free</p>
+      </div>
+    </a>
+
+    <a class="tile" data-appid="6789003942" href="https://apps.apple.com/us/app/id6789003942">
+      <img src="icons/times-table-400.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">Times Table 400: Space Math</p>
+        <p class="t-line">Multiplication past where most apps stop — all the way to 20×20.</p>
+        <p class="t-meta">Education · Free</p>
+      </div>
+    </a>
+
+    <a class="tile" data-appid="6789408466" href="https://apps.apple.com/us/app/id6789408466">
+      <img src="icons/softly.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">Softly: Bedtime Stories</p>
+        <p class="t-line">Softly reads you to sleep.</p>
+        <p class="t-meta">Books · Free</p>
+      </div>
+    </a>
+
+    <a class="tile" data-appid="6791432078" href="https://apps.apple.com/us/app/id6791432078">
+      <img src="icons/stock-gnome.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">Stock Gnome: Cozy Markets</p>
+        <p class="t-line">Every stock has a gnome, and one glance tells you how the day is going.</p>
+        <p class="t-meta">Finance · Free</p>
+      </div>
+    </a>
+
+    <a class="tile" data-appid="6790217662" href="https://apps.apple.com/us/app/id6790217662">
+      <img src="icons/zonecycle.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">ZoneCycle: HIIT Bike Trainer</p>
+        <p class="t-line">Makes every minute on the air bike count, with six voice coaches.</p>
+        <p class="t-meta">Health &amp; Fitness · Free</p>
+      </div>
+    </a>
+
+    <a class="tile" data-appid="6793361186" href="https://apps.apple.com/us/app/id6793361186">
+      <img src="icons/wardial.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">WARDIAL: Retro War Terminal</p>
+        <p class="t-line">Somewhere out there, an old computer is still listening.</p>
+        <p class="t-meta">Games · <span class="paid">$0.99</span></p>
+      </div>
+    </a>
+
+  </div>
+
+  <h2 class="shelf-label">In review at Apple</h2>
+  <div class="grid soon">
+
+    <div class="tile" data-appid="6796521571" aria-disabled="true">
+      <img src="icons/qso-globe.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">QSO Globe — Ham Radio Log</p>
+        <p class="t-line">Log a contact and watch the arc cross a living 3D globe.</p>
+        <p class="t-meta">In review</p>
+      </div>
+    </div>
+
+    <div class="tile" data-appid="6794738840" aria-disabled="true">
+      <img src="icons/gem-gnome.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">Gem Gnome</p>
+        <p class="t-line">Falling-gem duels, played out in a cottagecore garden.</p>
+        <p class="t-meta">In review</p>
+      </div>
+    </div>
+
+    <div class="tile" data-appid="6793357749" aria-disabled="true">
+      <img src="icons/hard-time.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">Hard Time — Prison Workout</p>
+        <p class="t-line">A six-week bodyweight program, and two coaches who never let you slide.</p>
+        <p class="t-meta">In review</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="badge-band">
+    <a class="badge-chip" href="https://apps.apple.com/us/developer/matthew-malham/id1875604080">
+      <img src="appstore-badge.svg" alt="Download on the App Store" width="120" height="40">
+    </a>
+  </div>
+
+  <ul class="f-links">
+    <li><a href="https://www.instagram.com/riverroadlabs/">Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@river.road.labs">TikTok</a></li>
+    <li><a href="https://apps.apple.com/us/developer/matthew-malham/id1875604080">All apps</a></li>
+    <li><a href="#support">Support</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+
+  <p class="colophon" id="support">
+    Questions, bugs, or a feature you wish existed —
+    <a href="mailto:MatthewMalham@hotmail.com" style="color:var(--accent)">MatthewMalham@hotmail.com</a>.
+    A real person reads every one.<br>
+    © 2026 Matthew Malham · River Road Labs
+  </p>
+</footer>
+
+</div>
+</body>
+</html>
