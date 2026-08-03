@@ -1,6 +1,10 @@
 # riverroadlabs.app
 
-Umbrella landing page for the artisanally crafted River Road Labs iOS apps. Static, self-contained,
+Umbrella landing page for the artisanally crafted River Road Labs iOS apps.
+
+Copy is studio-voiced ("the team at River Road Labs") — keep personal names out of
+the page text. Apple still lists the seller name on every App Store listing, so
+this is a tone choice, not privacy. Static, self-contained,
 served by GitHub Pages at <https://riverroadlabs.app>.
 
 ## Rules
