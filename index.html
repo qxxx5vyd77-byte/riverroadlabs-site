@@ -125,10 +125,36 @@ footer{margin:56px 0 72px; padding-top:30px; border-top:1px solid var(--rule)}
   .tile{gap:13px; padding:12px}
   .tile img{width:56px; height:56px}
 }
+
+/* ---------- in-app-browser guidance (shown only inside IG/TikTok/FB webviews) ---------- */
+.iab-bar{
+  margin:14px 0 -30px; padding:12px 14px; border-radius:12px;
+  background:var(--paper-2); border:1px solid var(--rule);
+  border-left:3px solid var(--accent);
+  font-size:.875rem; line-height:1.5; color:var(--ink);
+}
+.iab-bar b{color:var(--accent); font-weight:600}
+.iab-toast{
+  position:fixed; left:16px; right:16px; bottom:18px; z-index:10;
+  max-width:520px; margin:0 auto; padding:13px 16px; border-radius:12px;
+  background:var(--paper-2); border:1px solid var(--accent);
+  box-shadow:0 8px 26px var(--shadow);
+  font-size:.875rem; line-height:1.5; color:var(--ink);
+}
+@media (prefers-reduced-motion:no-preference){
+  .iab-toast{animation:iab-rise .25s ease}
+  @keyframes iab-rise{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:none}}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
+
+<div class="iab-bar" id="iab-bar" hidden>
+  <b><span id="iab-app">This app</span>'s built-in browser can't open the App Store.</b>
+  To install an app, tap <span id="iab-menu">the menu</span> and choose
+  <span id="iab-choose">"Open in external browser"</span> — the links work from there.
+</div>
 
 <header>
   <h1 class="wordmark">River Road Labs</h1>
@@ -263,5 +289,52 @@ footer{margin:56px 0 72px; padding-top:30px; border-top:1px solid var(--rule)}
 </footer>
 
 </div>
+
+<div class="iab-toast" id="iab-toast" role="status" hidden>
+  <b>Nothing happened?</b> <span id="iab-toast-text">That's this app's browser blocking
+  the App Store. Tap the menu and choose "Open in external browser".</span>
+</div>
+
+<script>
+(function(){
+  var ua = navigator.userAgent || "";
+  var app = /Instagram/i.test(ua) ? "Instagram"
+          : /TikTok|musical_ly|Bytedance/i.test(ua) ? "TikTok"
+          : /FBAN|FBAV|FB_IAB/i.test(ua) ? "Facebook"
+          : null;
+  if (!app) return;
+
+  var menu   = app === "TikTok" ? "the ⋯ menu" : "the ⋯ menu at the top right";
+  var choose = app === "TikTok" ? "“Open in browser”" : "“Open in external browser”";
+
+  document.getElementById("iab-app").textContent = app;
+  document.getElementById("iab-menu").textContent = menu;
+  document.getElementById("iab-choose").textContent = choose;
+  document.getElementById("iab-bar").hidden = false;
+
+  var toast = document.getElementById("iab-toast");
+  document.getElementById("iab-toast-text").textContent =
+    "That's " + app + "'s browser blocking the App Store. Tap " + menu + ", then " + choose + ".";
+
+  /* If a store link is tapped and we're still here shortly after, the handoff
+     was silently dropped — surface the workaround at the moment it failed. */
+  var showTimer, hideTimer;
+  function cancel(){ clearTimeout(showTimer); }
+  window.addEventListener("pagehide", cancel);
+  document.addEventListener("visibilitychange", function(){ if (document.hidden) cancel(); });
+
+  document.addEventListener("click", function(e){
+    var a = e.target && e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
+    if (!a) return;
+    cancel();
+    showTimer = setTimeout(function(){
+      if (document.hidden) return;
+      toast.hidden = false;
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function(){ toast.hidden = true; }, 9000);
+    }, 900);
+  });
+})();
+</script>
 </body>
 </html>
