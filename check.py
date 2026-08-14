@@ -146,15 +146,21 @@ def main():
     claim = re.search(r'class="count">(.*?)</p>', head, re.S)
     if claim:
         txt = claim.group(1).lower()
+        # NB: computed OUTSIDE the f-string on purpose. An f-string expression may not contain
+        # a backslash before Python 3.12, and launchd runs this under /usr/bin/python3 (older
+        # than the shell's python3). That mismatch made check.py die with a SyntaxError for 9
+        # days straight while anyone running it by hand saw it pass. Keep regexes out of
+        # f-strings here.
+        claim_txt = re.sub(r"\s+", " ", claim.group(1)).strip()
         if live < len(words) and words[live] not in txt:
             drift.append(
                 f"HEADER    page has {live} live tiles but the header reads "
-                f"\"{re.sub(r'\\s+', ' ', claim.group(1)).strip()}\""
+                f'"{claim_txt}"'
             )
         elif soon < len(words) and words[soon] not in txt:
             drift.append(
                 f"HEADER    page has {soon} in-review tiles but the header reads "
-                f"\"{re.sub(r'\\s+', ' ', claim.group(1)).strip()}\""
+                f'"{claim_txt}"'
             )
 
     # /go/<appid>/ hand-off pages — every LIVE app needs one, and it must point at itself.
