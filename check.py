@@ -157,6 +157,30 @@ def main():
                 f"\"{re.sub(r'\\s+', ' ', claim.group(1)).strip()}\""
             )
 
+    # /go/<appid>/ hand-off pages — every LIVE app needs one, and it must point at itself.
+    #
+    # WHY THIS CHECK EXISTS (2026-08-14): QSO Globe was approved, its tile went live, and the
+    # riverroadlabs.app/go/6796521571/ link was published in an X thread — while the page did
+    # not exist. It 404'd for about an hour. The tile and the hand-off page are updated by
+    # DIFFERENT steps (the tile by hand, the page by `make_go.py`), so the tile being right
+    # says nothing about the link being right. Social posts use the /go/ form exclusively
+    # (bare apps.apple.com links die inside in-app webviews), so a missing page is a dead
+    # launch link, which is the most expensive kind of drift on this site.
+    for appid, name, in_review in listed:
+        if in_review:
+            continue                      # not linked publicly yet
+        page = HERE / "go" / appid / "index.html"
+        if not page.exists():
+            drift.append(
+                f"GO-PAGE   {name} is live but /go/{appid}/ does not exist — "
+                f"any published link to it 404s. Run: python3 make_go.py"
+            )
+        elif appid not in page.read_text():
+            drift.append(
+                f"GO-PAGE   /go/{appid}/ exists but does not reference id {appid} — "
+                f"it may point at the wrong app. Run: python3 make_go.py"
+            )
+
     if drift:
         print(f"riverroadlabs.app — {len(drift)} thing(s) to fix:\n")
         for d in drift:
