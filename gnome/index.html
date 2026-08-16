@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Gnome — River Road Labs</title>
+<meta name="description" content="The gnome from the coloring books lives in Weather Gnome, a cozy forecast app for iPhone.">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center;
+    justify-content: center; padding: 28px 22px;
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #faf9f6; color: #1a1a1a;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #101211; color: #e9ebe7; }
+    .card { background: #171a18 !important; border-color: #262b28 !important; }
+    a.btn { background: #e9ebe7 !important; color: #101211 !important; }
+  }
+  .w { width: 100%; max-width: 30rem; text-align: center; }
+  h1 { font-size: 22px; margin: 0 0 6px; font-weight: 660; letter-spacing: -0.01em; }
+  .sub { margin: 0 0 26px; opacity: .7; font-size: 15px; }
+  .card {
+    background: #fff; border: 1px solid #e7e3da; border-radius: 14px;
+    padding: 20px 18px; margin-bottom: 14px; text-align: left;
+  }
+  .card h2 { font-size: 16.5px; margin: 0 0 4px; font-weight: 640; }
+  .card p { margin: 0 0 14px; font-size: 14.5px; opacity: .74; }
+  a.btn {
+    display: block; text-align: center; padding: 12px 18px; border-radius: 999px;
+    background: #1a1a1a; color: #faf9f6; text-decoration: none; font-weight: 620;
+    font-size: 15px;
+  }
+  a.plain { color: inherit; opacity: .75; font-size: 14.5px; }
+  .foot { margin-top: 22px; font-size: 13px; opacity: .5; }
+  .foot a { color: inherit; }
+</style>
+</head>
+<body>
+  <div class="w">
+    <h1>Hello from the gnome</h1>
+    <p class="sub">You found him. He gets around.</p>
+
+    <div class="card">
+      <h2>Weather Gnome</h2>
+      <p>He started here — a cozy forecast app for iPhone, with hundreds of paintings
+         that change with your real weather.</p>
+      <a class="btn" href="https://riverroadlabs.app/go/6759417050/">Get Weather Gnome</a>
+    </div>
+
+    <div class="card">
+      <h2>The coloring books</h2>
+      <p>Paperbacks on Amazon, printed single-sided so your markers stay put.</p>
+      <a class="plain" href="https://riverroadlabs.app/coloring-book/">See the books &rarr;</a>
+    </div>
+
+    <p class="foot">Made by <a href="https://riverroadlabs.app">River Road Labs</a></p>
+  </div>
+</body>
+</html>
