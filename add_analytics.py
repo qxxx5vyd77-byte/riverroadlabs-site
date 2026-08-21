@@ -19,6 +19,27 @@ Therefore: same tag everywhere, injected EARLY in <head> so the fetch starts bef
 redirect script runs. Do NOT add `defer` on the /go/ pages — defer waits for parsing to
 finish, which on those pages is the same tick the redirect fires in.
 
+⛔ INTERPRETATION RULE (advisor, 2026-08-21): a ZERO in CF /go/ data is AMBIGUOUS between
+"nobody clicked" and "the beacon never fires" until ONE /go/ hit is confirmed end-to-end.
+Until then no /go/ number is evidence about content performance. Homepage views do NOT
+validate /go/ — the homepage never navigates away, so it exercises none of the risky path.
+
+THE THREE PATHS SPLIT CLEANLY (test separately):
+  1. in-app webview (IG/TikTok/FB): iOS blocks the itms scheme, no navigation ever happens,
+     page stays open -> beacon should always land. This is most real traffic.
+  2. normal mobile browser, scheme resolves: page BACKGROUNDS (not destroyed); open question
+     is whether CF has sent by then.
+  3. desktop / scheme fails: the 1400ms fallback is location.replace() -> document DESTROYED.
+     Cold-cache third-party fetch+execute can lose that race. The "+250ms delay" fix below
+     helps ONLY this case.
+
+THE CONTROL: Matt deliberately taps one /go/ link at a NOTED TIME from a NOTED APP (IG
+in-app browser = the valuable case), then look for that exact path in CF. Establish the
+dashboard's ingest lag on a known-good homepage hit first — do not call a miss against an
+unknown lag. FREE TRIANGULATION: ASC "Web referrer" page views (funnel.rb / ground-truth,
+~2-day lag) measure the same event independently; CF stuck at 0 while ASC web-referrer
+moves = beacon broken, no device test needed.
+
 ⛔ VERIFY EMPIRICALLY AFTER INSTALL. The reasoning above is sound but untested. Load a /go/
 page on a real phone from a real social app and confirm the hit appears in Cloudflare. If
 /go/ hits do NOT register, the fix is to delay the scheme hand-off by ~250ms — but do not
