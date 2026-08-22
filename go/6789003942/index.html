@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- rrl-analytics -->
-<script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6051cc05f89044ed8153e414e403d977"}'></script>
+<script id="cfb" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6051cc05f89044ed8153e414e403d977"}'></script>
 <!-- /rrl-analytics -->
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Opening Times Table 400: Space Math in the App Store…</title>
@@ -60,7 +60,9 @@
           : /FBAN|FBAV|FB_IAB/i.test(ua) ? "Facebook" : null;
 
   var t = null;
-  if (!app) {
+
+  function handoff() {
+    if (!app) {
     t = setTimeout(function () { window.location.replace(web); }, 1400);
   } else {
     var menu = app === "TikTok" ? "the ⋯ menu" : "the ⋯ menu at the top right";
@@ -75,11 +77,31 @@
       document.getElementById("sub").textContent = "";
     }, 1200);
   }
+    window.location.href = scheme;
+  }
+
   document.addEventListener("visibilitychange", function () {
     if (document.hidden && t) clearTimeout(t);
   });
   window.addEventListener("pagehide", function () { if (t) clearTimeout(t); });
-  window.location.href = scheme;
+
+  // ⭐ ANALYTICS FIX 2026-08-22 — hold the hand-off until the Cloudflare beacon has loaded.
+  // THE BUG: `window.location.href = scheme` ran immediately on every surface. On any device
+  // that has the App Store app, the OS takes over within milliseconds and this page is
+  // backgrounded before the async beacon can report. Three taps on 08-22 — Instagram in-app,
+  // mobile Safari, and a desktop Chrome control — ALL failed to register, while `/` and
+  // `/coloring-book/` reported normally. The beacon tag itself was live and correct.
+  // WHY IT MATTERED: every social App Store link routes through /go/ by standing rule, so this
+  // lane had been recording NOTHING since it was built — and the silence was being read as
+  // "nobody is tapping" rather than "the instrument is dead".
+  // ⚠️ HYPOTHESIS-DRIVEN, NOT PROVEN. Re-run all three taps after deploy and confirm a /go/
+  // path appears in Cloudflare before trusting this lane again. A fix is only proven by the
+  // same test that caught the fault.
+  var started = false;
+  function start() { if (!started) { started = true; handoff(); } }
+  var b = document.getElementById("cfb");
+  if (b) b.addEventListener("load", function () { setTimeout(start, 250); });
+  setTimeout(start, 900);   // hard cap — never delay the user more than 900ms
 })();
 </script>
 <noscript><meta http-equiv="refresh" content="0;url=https://apps.apple.com/us/app/id6789003942"></noscript>
