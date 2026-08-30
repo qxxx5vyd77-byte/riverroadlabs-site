@@ -157,7 +157,12 @@ def main():
                 f"HEADER    page has {live} live tiles but the header reads "
                 f'"{claim_txt}"'
             )
-        elif soon < len(words) and words[soon] not in txt:
+        elif soon and soon < len(words) and words[soon] not in txt:
+            # `soon` is guarded because ZERO in-review tiles is the normal state, and the
+            # header should not have to say "Zero in review." to satisfy this check. Without
+            # the guard this fired the moment the last in-review shelf emptied (Focus Gnome
+            # went live 2026-08-24, shelf cleared 08-30) and demanded awkward copy to silence
+            # a non-problem. A non-zero count is still claimed and still checked.
             drift.append(
                 f"HEADER    page has {soon} in-review tiles but the header reads "
                 f'"{claim_txt}"'
