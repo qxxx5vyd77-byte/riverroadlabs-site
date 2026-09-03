@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <!-- rrl-analytics -->
-<script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6051cc05f89044ed8153e414e403d977"}'></script>
+<script id="cfb" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6051cc05f89044ed8153e414e403d977"}'></script>
 <!-- /rrl-analytics -->
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Opening The Weather Gnome Coloring Book on Amazon…</title>
-<link rel="canonical" href="https://www.amazon.com/dp/B0HFCKBCR9">
-<meta name="robots" content="noindex">
+<title>Gnome coloring books · River Road Labs</title>
+<meta name="description" content="Two paper coloring books of our watercolor gnomes: The Weather Gnome Coloring Book and Gnomes Around the World. On Amazon.">
+<link rel="canonical" href="https://riverroadlabs.app/coloring-book/">
 <style>
   :root { color-scheme: light dark; }
   body {
@@ -20,39 +20,41 @@
   @media (prefers-color-scheme: dark) {
     body { background: #101211; color: #e9ebe7; }
     a.btn { background: #e9ebe7 !important; color: #101211 !important; }
+    .book { border-color: #2a2d2b !important; }
   }
-  .w { display: flex; flex-direction: column; gap: 14px; align-items: center; max-width: 30ch; }
-  h1 { font-size: 19px; margin: 0; font-weight: 650; }
+  .w { display: flex; flex-direction: column; gap: 18px; align-items: center; max-width: 34ch; }
+  h1 { font-size: 20px; margin: 0; font-weight: 650; }
   p { margin: 0; opacity: .72; font-size: 14.5px; }
+  .book { display: flex; flex-direction: column; gap: 6px; align-items: center; padding: 16px 18px; border: 1px solid #e3e1db; border-radius: 14px; width: 100%; }
+  .book h2 { font-size: 16px; margin: 0; font-weight: 640; }
   a.btn {
-    display: inline-block; margin-top: 6px; padding: 12px 22px; border-radius: 999px;
-    background: #1a1a1a; color: #faf9f6; text-decoration: none; font-weight: 640;
+    display: inline-block; margin-top: 4px; padding: 11px 20px; border-radius: 999px;
+    background: #1a1a1a; color: #faf9f6; text-decoration: none; font-weight: 640; font-size: 15px;
   }
   a.home { color: inherit; opacity: .55; font-size: 13px; }
 </style>
 </head>
 <body>
   <div class="w">
-    <h1>Opening The Weather Gnome Coloring Book on Amazon…</h1>
-    <p id="sub">If nothing happens, tap below.</p>
-    <a class="btn" href="https://www.amazon.com/dp/B0HFCKBCR9">Open on Amazon</a>
+    <h1>Our gnomes, in print</h1>
+    <p>Two paper coloring books of the same watercolor gnomes. The links open Amazon.</p>
+
+    <div class="book">
+      <h2>The Weather Gnome Coloring Book</h2>
+      <p>The gnomes from the app, one per page.</p>
+      <a class="btn" href="https://amzn.to/3Sfm4Ln">Open on Amazon</a>
+    </div>
+
+    <div class="book">
+      <h2>Gnomes Around the World</h2>
+      <p>The special city gnomes, from Reykjavik to Nome.</p>
+      <a class="btn" href="https://www.amazon.com/dp/B0HGTKN7X9">Open on Amazon</a>
+    </div>
+
     <a class="home" href="https://riverroadlabs.app">River Road Labs</a>
   </div>
-<script>
-(function () {
-  // Unlike the /go/ App Store pages, no scheme hand-off is needed here: an Amazon
-  // product page is plain https and loads everywhere, including the Instagram/TikTok
-  // in-app webviews that swallow itms-apps://. One hop, owned by us, so a marketplace
-  // or ASIN change stays a one-file site edit.
-  var t = setTimeout(function () {
-    window.location.replace('https://www.amazon.com/dp/B0HFCKBCR9');
-  }, 400);
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden && t) clearTimeout(t);
-  });
-  window.addEventListener("pagehide", function () { if (t) clearTimeout(t); });
-})();
-</script>
-<noscript><meta http-equiv="refresh" content="0;url=https://www.amazon.com/dp/B0HFCKBCR9"></noscript>
+<!-- 2026-09-02: was a single-book auto-redirect to book 1. Now a two-book landing, gnome
+     titles only (Matt's call); the seasonal book is deliberately not listed here. The
+     Weather Gnome app links this URL, so adding a book is a one-file site edit. -->
 </body>
 </html>
