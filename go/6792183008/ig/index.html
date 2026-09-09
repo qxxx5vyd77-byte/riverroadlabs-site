@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- rrl-analytics -->
+<script id="cfb" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6051cc05f89044ed8153e414e403d977"}'></script>
+<!-- /rrl-analytics -->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opening Focus Gnome: Study Timer in the App Store…</title>
+<link rel="canonical" href="https://apps.apple.com/us/app/id6792183008">
+<meta name="robots" content="noindex">
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center;
+    justify-content: center; padding: 24px;
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #faf9f6; color: #1a1a1a; text-align: center;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #101211; color: #e9ebe7; }
+    a.btn { background: #e9ebe7 !important; color: #101211 !important; }
+  }
+  .w { display: flex; flex-direction: column; gap: 14px; align-items: center; max-width: 30ch; }
+  h1 { font-size: 19px; margin: 0; font-weight: 650; }
+  p { margin: 0; opacity: .72; font-size: 14.5px; }
+  a.btn {
+    display: inline-block; margin-top: 6px; padding: 12px 22px; border-radius: 999px;
+    background: #1a1a1a; color: #faf9f6; text-decoration: none; font-weight: 640;
+  }
+  a.home { color: inherit; opacity: .55; font-size: 13px; }
+</style>
+</head>
+<body>
+  <div class="w">
+    <h1>Opening Focus Gnome: Study Timer in the App Store…</h1>
+    <p id="sub">If nothing happens, tap below.</p>
+    <a class="btn" href="https://apps.apple.com/us/app/id6792183008">Open in the App Store</a>
+    <p id="iab" hidden style="font-size:13.5px;line-height:1.5;margin:16px 0 0;opacity:.85">
+      <b>Still here?</b> <span id="iabtxt"></span>
+    </p>
+    <a class="home" href="https://riverroadlabs.app">River Road Labs</a>
+  </div>
+<script>
+(function () {
+  var web = 'https://apps.apple.com/us/app/id6792183008';
+  var scheme = 'itms-apps://apps.apple.com/us/app/id6792183008';
+  // The scheme hand-off is the whole point: it leaves the in-app webview and opens
+  // the App Store app. If it resolves, this page gets backgrounded and
+  // visibilitychange fires — cancel the fallback so returning here doesn't bounce
+  // the user a second time.
+  // In-app browsers (Instagram/TikTok/Facebook) drop BOTH the itms-apps:// scheme and
+  // the https fallback, so the old behaviour was: try scheme, fail, redirect to a page
+  // whose Get button is also dead. The fallback WAS the dead end it existed to avoid.
+  // Detect those webviews, skip the pointless https bounce, and say the one thing that
+  // actually works — open it in the real browser. Verified on device 2026-08-06.
+  var ua = navigator.userAgent || "";
+  var app = /Instagram/i.test(ua) ? "Instagram"
+          : /TikTok|musical_ly|Bytedance/i.test(ua) ? "TikTok"
+          : /FBAN|FBAV|FB_IAB/i.test(ua) ? "Facebook" : null;
+
+  var t = null;
+
+  function handoff() {
+    if (!app) {
+    t = setTimeout(function () { window.location.replace(web); }, 1400);
+  } else {
+    var menu = app === "TikTok" ? "the ⋯ menu" : "the ⋯ menu at the top right";
+    var choose = app === "TikTok" ? "“Open in browser”" : "“Open in external browser”";
+    setTimeout(function () {
+      if (document.hidden) return;
+      var el = document.getElementById("iab");
+      document.getElementById("iabtxt").textContent =
+        app + "'s browser can't open the App Store. Tap " + menu + ", choose " + choose +
+        ", and this page will hand off properly.";
+      el.hidden = false;
+      document.getElementById("sub").textContent = "";
+    }, 1200);
+  }
+    window.location.href = scheme;
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden && t) clearTimeout(t);
+  });
+  window.addEventListener("pagehide", function () { if (t) clearTimeout(t); });
+
+  // ⭐ ANALYTICS FIX 2026-08-22 — hold the hand-off until the Cloudflare beacon has loaded.
+  // THE BUG: `window.location.href = scheme` ran immediately on every surface. On any device
+  // that has the App Store app, the OS takes over within milliseconds and this page is
+  // backgrounded before the async beacon can report. Three taps on 08-22 — Instagram in-app,
+  // mobile Safari, and a desktop Chrome control — ALL failed to register, while `/` and
+  // `/coloring-book/` reported normally. The beacon tag itself was live and correct.
+  // WHY IT MATTERED: every social App Store link routes through /go/ by standing rule, so this
+  // lane had been recording NOTHING since it was built — and the silence was being read as
+  // "nobody is tapping" rather than "the instrument is dead".
+  // ⚠️ HYPOTHESIS-DRIVEN, NOT PROVEN. Re-run all three taps after deploy and confirm a /go/
+  // path appears in Cloudflare before trusting this lane again. A fix is only proven by the
+  // same test that caught the fault.
+  var started = false;
+  function start() { if (!started) { started = true; handoff(); } }
+  var b = document.getElementById("cfb");
+  if (b) b.addEventListener("load", function () { setTimeout(start, 250); });
+  setTimeout(start, 900);   // hard cap — never delay the user more than 900ms
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0;url=https://apps.apple.com/us/app/id6792183008"></noscript>
+</body>
+</html>

@@ -18,6 +18,26 @@ today can break. Point the tiles at /go/<id>/ only after the pages are verified 
 
     python3 make_go.py          # write the pages
     python3 make_go.py --check  # list what WOULD be written, write nothing
+
+⛔ THE TEMPLATE BELOW IS STALE (verified 2026-08-30). It predates the Cloudflare beacon and
+the 2026-08-22 "hold the hand-off until the beacon has loaded" fix that the live pages carry.
+Running the default mode REWRITES every live /go/<id>/index.html back to the old behaviour
+and silently kills the analytics lane. Until the template is brought up to date, the live
+pages are the ground truth, not this file. New bare pages: copy a known-good live page.
+
+PER-SURFACE PATHS (2026-09-08, Matt: "Approve, build and push")
+-----------------------------------------------------------------
+    python3 make_go.py --surfaces          # write /go/<slug>/{ig,fb,tt,x}/index.html
+    python3 make_go.py --surfaces --check  # report what differs, write nothing
+
+Every bare /go/<slug>/index.html gets four BYTE-IDENTICAL copies at /go/<slug>/ig/,
+/fb/, /tt/ and /x/. Same target, same beacon, same fallback — the only difference is the
+path Cloudflare Web Analytics records, so a click can be attributed to the surface the
+link was posted on (the kanji-fb / kanji-wk A/B pages proved the mechanism on 2026-09-01).
+The bare path keeps working and stays the source: this mode reads the live bare page and
+never touches it, so it is safe to re-run after any bare-page edit (idempotent — a copy is
+rewritten only when its bytes differ). Pages use absolute URLs only, so the deeper path
+changes nothing about what they load.
 """
 
 import re
@@ -28,6 +48,10 @@ HERE = Path(__file__).parent
 INDEX = HERE / "index.html"
 OUT = HERE / "go"
 CHECK = "--check" in sys.argv
+SURFACES_MODE = "--surfaces" in sys.argv
+
+# One suffix per surface a link gets posted on. Add here to mint a new path fleet-wide.
+SURFACES = ("ig", "fb", "tt", "x")
 
 TILE = re.compile(
     r'<a class="tile" data-appid="(?P<id>\d+)"[^>]*>(?P<body>.*?)</a>', re.S
@@ -121,7 +145,36 @@ PAGE = """<!doctype html>
 """
 
 
+def surfaces():
+    """Mirror every bare /go/<slug>/index.html into /go/<slug>/<surface>/index.html, byte for byte."""
+    bare = sorted(p for p in OUT.glob("*/index.html"))
+    if not bare:
+        print(f"no bare pages under {OUT} — run the default mode first")
+        return 2
+    written = same = 0
+    for src in bare:
+        slug = src.parent.name
+        data = src.read_bytes()
+        for sfx in SURFACES:
+            dest = OUT / slug / sfx / "index.html"
+            if dest.exists() and dest.read_bytes() == data:
+                same += 1
+                continue
+            print(f"  {'would write' if CHECK else 'write'}  /go/{slug}/{sfx}/  (from /go/{slug}/)")
+            if CHECK:
+                written += 1
+                continue
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(data)
+            written += 1
+    verb = "would write" if CHECK else "wrote"
+    print(f"\n{len(bare)} bare page(s) x {len(SURFACES)} surfaces: {verb} {written}, already identical {same}")
+    return 0
+
+
 def main():
+    if SURFACES_MODE:
+        return surfaces()
     html = INDEX.read_text()
     apps = []
     for m in TILE.finditer(html):
