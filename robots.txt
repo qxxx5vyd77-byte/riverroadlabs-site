@@ -1,0 +1,12 @@
+# riverroadlabs.app
+# Everything here is meant to be read, by people and by crawlers alike.
+
+User-agent: *
+Allow: /
+
+# /go/ holds per-surface App Store redirectors, not content. They exist to
+# measure which channel sent a tap, and an indexed redirector is just a
+# duplicate of an App Store page we do not own. Skip them.
+Disallow: /go/
+
+Sitemap: https://riverroadlabs.app/sitemap.xml
