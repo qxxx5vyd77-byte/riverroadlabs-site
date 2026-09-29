@@ -148,6 +148,14 @@ footer{margin:56px 0 72px; padding-top:30px; border-top:1px solid var(--rule)}
   .iab-toast{animation:iab-rise .25s ease}
   @keyframes iab-rise{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:none}}
 }
+/* ---------- new record card (under the header) ---------- */
+.now{display:flex; gap:14px; align-items:center; max-width:560px; margin:0 auto 38px; padding:12px 16px;
+  border:1px solid var(--rule); border-radius:14px; background:var(--paper-2); color:var(--ink);
+  text-decoration:none; box-shadow:0 1px 2px var(--shadow)}
+.now img{border-radius:8px; flex:none}
+.now-kicker{display:block; font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent)}
+.now-title{display:block; font-family:var(--serif); font-size:1.25rem; line-height:1.25}
+.now-line{display:block; color:var(--ink-2); font-size:.9375rem; line-height:1.35}
 </style>
 </head>
 <body>
@@ -165,6 +173,15 @@ footer{margin:56px 0 72px; padding-top:30px; border-top:1px solid var(--rule)}
   <p class="tagline">Artisanally crafted iOS apps from the team at River Road Labs — written, drawn, and shipped one at a time.</p>
   <p class="count">Eleven on the App Store.</p>
 </header>
+
+<a class="now" href="https://distrokid.com/hyperfollow/rushmorerejects/handsome-frank">
+  <img src="icons/handsome-frank.webp" alt="" width="56" height="56">
+  <span>
+    <span class="now-kicker">New record · Out October 9</span>
+    <span class="now-title">Handsome Frank</span>
+    <span class="now-line">The album Franklin Pierce never got to make, from the creators of Gentleman Boss. Pre-save on Spotify.</span>
+  </span>
+</a>
 
 <main>
   <h2 class="shelf-label">On the App Store</h2>
@@ -294,6 +311,24 @@ footer{margin:56px 0 72px; padding-top:30px; border-top:1px solid var(--rule)}
   <h2 class="shelf-label">On the record</h2>
   <div class="grid">
 
+    <a class="tile music" href="https://distrokid.com/hyperfollow/rushmorerejects/handsome-frank">
+      <img src="icons/handsome-frank.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">Handsome Frank</p>
+        <p class="t-line">A Franklin Pierce concept record, from the creators of Gentleman Boss. Out October 9.</p>
+        <p class="t-meta">RUSHMORE REJECTS · PRE-SAVE ON SPOTIFY</p>
+      </div>
+    </a>
+
+    <a class="tile music" href="https://distrokid.com/hyperfollow/rushmorerejects/gentleman-boss-2">
+      <img src="icons/gentleman-boss.webp" alt="" width="64" height="64" loading="lazy">
+      <div class="t-body">
+        <p class="t-name">Gentleman Boss</p>
+        <p class="t-line">A Chester A. Arthur concept record. Twelve tracks, out now.</p>
+        <p class="t-meta">RUSHMORE REJECTS · STREAMING NOW</p>
+      </div>
+    </a>
+
     <div class="tile music">
       <img src="icons/weather-gnome-single.webp" alt="" width="64" height="64" loading="lazy">
       <div class="t-body">
@@ -308,14 +343,6 @@ footer{margin:56px 0 72px; padding-top:30px; border-top:1px solid var(--rule)}
       </div>
     </div>
 
-    <a class="tile music" href="https://distrokid.com/hyperfollow/rushmorerejects/gentleman-boss">
-      <img src="icons/gentleman-boss-single.webp" alt="" width="64" height="64" loading="lazy">
-      <div class="t-body">
-        <p class="t-name">Gentleman Boss</p>
-        <p class="t-line">A Chester A. Arthur concept record. Single out August 28 — album September 25.</p>
-        <p class="t-meta">RUSHMORE REJECTS · PRE-SAVE ON SPOTIFY</p>
-      </div>
-    </a>
 
     <div class="tile music">
       <img src="icons/io-eleven-eleven.webp" alt="" width="64" height="64" loading="lazy">
