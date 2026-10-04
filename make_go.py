@@ -51,7 +51,7 @@ CHECK = "--check" in sys.argv
 SURFACES_MODE = "--surfaces" in sys.argv
 
 # One suffix per surface a link gets posted on. Add here to mint a new path fleet-wide.
-SURFACES = ("ig", "fb", "tt", "x", "card", "fr-a", "fr-b")  # card = in-app share card; fr-a/fr-b = the French paid A/B arms (WG, 2026-10-03)
+SURFACES = ("ig", "fb", "tt", "x", "card", "fr-a", "fr-b", "fr-c")  # card = in-app share card; fr-a/fr-b = the French paid A/B arms (WG, 2026-10-03); fr-c = the valse musette Meta campaign (WG, 2026-10-04)
 
 TILE = re.compile(
     r'<a class="tile" data-appid="(?P<id>\d+)"[^>]*>(?P<body>.*?)</a>', re.S
