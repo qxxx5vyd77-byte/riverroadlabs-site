@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- rrl-analytics -->
+<script id="cfb" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6051cc05f89044ed8153e414e403d977"}'></script>
+<!-- /rrl-analytics -->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Annotated Handsome Frank · Rushmore Rejects</title>
+<meta name="description" content="Track-by-track liner notes for Handsome Frank, the Rushmore Rejects record about Franklin Pierce. Every historical claim sourced; every legend flagged.">
+<link rel="canonical" href="https://riverroadlabs.app/rushmore-rejects/handsome-frank/">
+<meta property="og:title" content="The Annotated Handsome Frank">
+<meta property="og:description" content="Track-by-track liner notes for Handsome Frank, the Rushmore Rejects record about Franklin Pierce. Every historical claim sourced; every legend flagged.">
+<meta property="og:url" content="https://riverroadlabs.app/rushmore-rejects/handsome-frank/">
+<meta property="og:image" content="https://riverroadlabs.app/icons/handsome-frank.webp">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: companion to The Annotated Gentleman Boss. One column of liner notes, grouped by the album's three movements.
+   Palette pulled from the Handsome Frank cover: oil-dark ground, bone collar, oxblood chair. */
+:root{
+  --paper:#ECE5D8; --surface:#E1D7C5; --rule:#C7B79E;
+  --ink:#1D1613; --ink-soft:#54463D; --ink-faint:#86766A;
+  --accent:#8B2A2C; --flag:#7A5A1E;
+  --display:"Bodoni Moda",Didot,"Times New Roman",serif;
+  --body:"Spectral",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#140F0D; --surface:#1D1613; --rule:#3A2C26;
+    --ink:#EDE5DA; --ink-soft:#B9A99B; --ink-faint:#8C7C70;
+    --accent:#D9796E; --flag:#CFA65E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#140F0D; --surface:#1D1613; --rule:#3A2C26;
+  --ink:#EDE5DA; --ink-soft:#B9A99B; --ink-faint:#8C7C70;
+  --accent:#D9796E; --flag:#CFA65E; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:300;line-height:1.66;
+  padding-inline:20px;padding-block:0;margin:0}
+.wrap{max-width:740px;margin:0 auto}
+header{padding-block:60px 38px;border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 24px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(40px,10vw,78px);line-height:.94;letter-spacing:-.015em;margin:0 0 8px;text-wrap:balance}
+.sub{font-family:var(--display);font-style:italic;font-size:clamp(15px,3.4vw,19px);color:var(--ink-soft);margin:0 0 32px}
+.verdict{border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:0 0 26px}
+.verdict p{font-family:var(--display);font-style:italic;font-size:clamp(16px,3.9vw,21px);line-height:1.5;margin:0}
+.verdict cite{display:block;margin-top:12px;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.06em}
+.stance{display:grid;gap:18px}
+.stance p{margin:0;font-size:16px;color:var(--ink-soft);max-width:64ch}
+.stance b{color:var(--ink);font-weight:600}
+.facts{display:flex;flex-wrap:wrap;gap:24px 34px;padding-block:22px;border-bottom:1px solid var(--rule);margin:0}
+.fact{display:flex;flex-direction:column;gap:3px}
+.fact dt{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+.fact dd{margin:0;font-family:var(--mono);font-size:16px;font-variant-numeric:tabular-nums}
+h2{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--ink-faint);
+  margin:46px 0 0;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+h2 span{color:var(--accent)}
+.track{display:grid;grid-template-columns:38px 1fr;column-gap:16px;padding-block:24px;border-bottom:1px solid var(--rule)}
+.track > div{min-width:0}
+.num{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--accent);padding-top:7px;letter-spacing:.06em}
+.t-name{font-family:var(--display);font-size:clamp(21px,5vw,27px);font-weight:700;line-height:1.15;margin:0 0 9px;text-wrap:balance}
+.note{margin:0;font-size:15.5px;color:var(--ink-soft)}
+.note b{color:var(--ink);font-weight:600}
+.note em{font-style:italic;color:var(--ink)}
+.flag{display:block;margin-top:10px;font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--flag);letter-spacing:.02em}
+.closer{margin-top:26px;padding:22px 24px;background:var(--surface);border:1px solid var(--rule)}
+.closer p{margin:0 0 14px;font-size:15.5px;color:var(--ink-soft)}
+.closer p:last-child{margin-bottom:0}
+.closer b{color:var(--ink);font-weight:600}
+footer{padding-block:34px 62px}
+.colophon{font-family:var(--mono);font-size:12px;line-height:1.75;color:var(--ink-soft)}
+.colophon b{color:var(--ink);font-weight:500}
+.sig{margin-top:24px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:11px;color:var(--ink-faint);line-height:1.8}
+@media (max-width:460px){.track{grid-template-columns:1fr;row-gap:4px}.num{padding-top:0}}
+
+.rr-nav{max-width:760px;margin:0 auto;padding-top:18px;display:flex;justify-content:space-between;gap:16px;
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.rr-nav a{color:var(--ink-faint);text-decoration:none}
+.rr-nav a:hover{color:var(--ink)}
+.rr-listen{display:inline-block;margin-top:22px;padding:10px 20px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.rr-listen:hover{background:var(--ink);color:var(--paper)}
+.rr-more{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:11px;color:var(--ink-faint);line-height:1.9;margin-top:18px}
+.rr-more a{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<nav class="rr-nav"><a href="/">River Road Labs</a><a href="https://distrokid.com/hyperfollow/rushmorerejects/handsome-frank">Listen</a></nav>
+<div class="wrap">
+<header>
+  <p class="eyebrow">Rushmore Rejects · Album Two · 9 October 2026</p>
+  <h1>The Annotated Handsome Frank</h1>
+  <p class="sub">Franklin Pierce, 14th President of the United States</p>
+
+  <div class="verdict">
+    <p>“I hope he won't be elected for I should not like to be at Washington and I know you would not either.”</p>
+    <cite>Benjamin Pierce, age 11, to his mother, 1852</cite>
+  </div>
+
+  <div class="stance">
+    <p><b>The premise.</b> Franklin Pierce was the most likeable man ever to hold the office and one of the worst presidents to
+    hold it. Nobody asked what he stood for. They nominated him on the 49th ballot because almost nobody knew who he was, and
+    eight weeks before he took office his last living son was killed in front of him. This album is his story, told by him,
+    in the order it happened.</p>
+    <p><b>The method.</b> Every historical claim in these twelve songs traces to the documented record. Pierce collects more
+    legends than most presidents, so this album flags them on the record: the famous drunk quote is fake and track 10 denies
+    it in his own voice; his wife wrote one letter to their dead son, not years of them; and <em>Handsome Frank</em> is our
+    title, not anything he was called in his lifetime. <b>The sound is invented. The rest happened.</b></p>
+  </div>
+  <a class="rr-listen" href="https://distrokid.com/hyperfollow/rushmorerejects/handsome-frank">Listen to Handsome Frank</a>
+</header>
+
+<dl class="facts">
+  <div class="fact"><dt>Tracks</dt><dd>12</dd></div>
+  <div class="fact"><dt>In office</dt><dd>1853–1857</dd></div>
+  <div class="fact"><dt>Nominated on ballot</dt><dd>49</dd></div>
+  <div class="fact"><dt>Days, wreck to oath</dt><dd>57</dd></div>
+  <div class="fact"><dt>Years to a statue</dt><dd>45</dd></div>
+</dl>
+
+<h2><span>I</span> · The likeable man</h2>
+
+<div class="track"><div class="num">01</div><div>
+<h3 class="t-name">They Liked Me</h3>
+<p class="note">The first fact about him, and the reason for everything after. Nathaniel Hawthorne, his closest friend, wrote that
+his face made <em>“a kind of sunshine”</em> no shyness could resist, in a campaign biography written to get him elected. As a
+lawyer he read juries, not precedent. The New Hampshire House made him Speaker at <b>26</b> (1831), and the U.S. Senate took
+him at <b>32</b>, the youngest man then sitting, which is not the same as youngest ever, and the song corrects the common
+error on purpose. The bridge admits the title is ours: “that is not what they called me… what they called me was likeable.”</p>
+<span class="flag">⚑ “Handsome Frank” has no 1850s citation. It is our title for him, never presented as his nickname.</span>
+</div></div>
+
+<div class="track"><div class="num">02</div><div>
+<h3 class="t-name">The Fainting General</h3>
+<p class="note">Contreras, outside Mexico City, <b>19 August 1847</b>. His horse reared on the lava rock and fell, throwing him
+onto the pommel; it rolled onto his knee and he was knocked senseless. A remark reported from his own brigade called him
+a coward. Five years later the Whig papers turned the fall into a brand, <b>the Fainting General</b>, and printed a joke book,
+<em>The Military Services of General Pierce</em>, made tiny on purpose. The Richmond Whig wrote of <em>“his known propensity for
+fainting.”</em> He was unconscious in a lava field. They set it in type as a character flaw.</p>
+</div></div>
+
+<div class="track"><div class="num">03</div><div>
+<h3 class="t-name">The Way Out Was Me</h3>
+<p class="note">Baltimore, June 1852. The Democrats needed two-thirds and four big men split the room: Cass, Buchanan, Marcy,
+Douglas. <b>Thirty-four ballots, not a single vote for Pierce.</b> Virginia put his name up on the 35th, and he was nominated on
+the <b>49th with 282 votes</b>. He won because he had, in the Miller Center's phrase, <em>“few enemies, nor indeed any
+reputation.”</em> They did not pick a man. They picked the way out.</p>
+<span class="flag">⚑ Some sources say the 48th ballot. The convention record says 49.</span>
+</div></div>
+
+<h2><span>II</span> · The wreck and the silence</h2>
+
+<div class="track"><div class="num">04</div><div>
+<h3 class="t-name">I Heard the Million</h3>
+<p class="note">He wrote that the use of his name would be <em>“utterly repugnant to my tastes and wishes,”</em> and in the same
+letter that his life had been <em>“so barren of usefulness.”</em> Both sentences are his (to Charles Atherton, January 1852).
+Two votes against him at his own table: his son Benny, eleven, wrote <em>“I hope he won't be elected,”</em> and his wife Jane,
+who had already buried two sons, wished him <em>“out of political life.”</em> In November he beat his own former commanding
+general, Winfield Scott, <b>27 states to 4</b>. They were to go home in January to pack.</p>
+</div></div>
+
+<div class="track"><div class="num">05</div><div>
+<h3 class="t-name">The Little Boy</h3>
+<p class="note"><b>6 January 1853</b>, about one in the afternoon, a Boston &amp; Maine train three miles above Andover. An axle broke
+and the car went fifteen or twenty feet down an embankment into a rocky field. About sixty people were aboard and several were
+hurt. Benny, eleven, was the only one killed. The song lets a contemporary newspaper say it, because nothing better has been
+written: <em>“Gen. Pierce took him up, he did not think the little boy was dead until he took off his cap.”</em> They buried him
+from Jane's sister's house. Eight weeks later Pierce was sworn in.</p>
+<span class="flag">⚑ The cause of the axle failure is not settled, and whether Benny stood at the window is contested. The song says only what is known.</span>
+</div></div>
+
+<div class="track"><div class="num">06</div><div>
+<h3 class="t-name">She Wore It Anyway</h3>
+<p class="note">Jane Means Appleton Pierce was raised in strict Calvinism, a minister's daughter who believed nothing is wasted.
+The scholarly reading of her grief is <b>“providential clearing”</b>: that God had taken Benny so her husband could do the work
+he had wanted without distraction. She did not attend the inauguration and wrote on black-edged mourning paper. The song
+gives Pierce the hardest line on the record: she was right about the trade and wrong about who made it. An axle broke. But
+he had wanted the office enough to write a letter saying he didn't.</p>
+<span class="flag">⚑ That she called it punishment is a historians' characterization; no sentence of hers says so. The song never uses the word for her.</span>
+</div></div>
+
+<div class="track"><div class="num">07</div><div>
+<h3 class="t-name">I Said I Affirm</h3>
+<p class="note"><b>4 March 1853</b>, snow coming sideways, no inaugural ball, Jane not in the city. He is the <b>only president
+to affirm the oath rather than swear it</b>, and the first to give his inaugural address entirely from memory: about
+3,329 words, no notes. His standard biographer found <b>no evidence of why</b> he affirmed, and the song refuses to supply one.
+The outro is his real opening line: <em>“It is a relief to feel that no heart but my own can know the personal regret and bitter
+sorrow over which I have been borne to a position so suitable for others rather than desirable for myself.”</em></p>
+<span class="flag">⚑ “He refused the Bible because he blamed God” and “hand on a law book” are unsourced. Neither is on the record.</span>
+</div></div>
+
+<div class="track"><div class="num">08</div><div>
+<h3 class="t-name">The Unsent Letter</h3>
+<p class="note">Three weeks after the wreck, Jane wrote to Benny, already buried: <em>“My precious child, I must write to you
+although you are never to see it or know it.”</em> The letter is held by the New Hampshire Historical Society, and its lines in
+the song are hers: <em>“Oh Benny, I have not valued such a sweet blessing as I ought.”</em> The famous version says she wrote to
+him for years. The catalogue holds <b>one letter</b>. Then she carried it instead, ten years in black, and on their travels
+abroad after the presidency she <b>carried Benny's Bible the whole way</b>.</p>
+<span class="flag">⚑ “She wrote to her dead son for years” is legend. One letter is catalogued; the song says one.</span>
+</div></div>
+
+<h2><span>III</span> · The damage</h2>
+
+<div class="track"><div class="num">09</div><div>
+<h3 class="t-name">The Question Is at Rest</h3>
+<p class="note">In his inaugural he said he <em>“fervently hope[d] that the question is at rest”</em>, meaning slavery in the
+territories. Fourteen months later, in <b>May 1854</b>, he signed the Kansas–Nebraska Act, which repealed the Missouri
+Compromise line he had called settled. He did not write the bill but encouraged it, and would rather have sent the question to
+the Supreme Court. Jane opposed it and urged him to veto it. What his signature bought: the Whigs died, the Republicans were
+born, Kansas filled with men who came to vote with guns, Lawrence burned, and a lawyer in Springfield, Illinois went back into
+politics. The New Hampshire Historical Society calls it <b>“his most significant failure.”</b></p>
+<span class="flag">⚑ Jane's position is documented. The two words “Veto it” are that position put into speech, not a quotation.</span>
+</div></div>
+
+<div class="track"><div class="num">10</div><div>
+<h3 class="t-name">Easier as a Joke</h3>
+<p class="note">Cincinnati, June 1856. His own party balloted him away; he withdrew before the 15th ballot and Buchanan took it
+on the 17th. He is the <b>only elected president who sought his party's renomination and was refused</b> (Tyler, Fillmore,
+Andrew Johnson and Arthur were turned down too, but none had been elected to the office). Then the drinking. He joined the
+Congressional Temperance Society in 1837, quit in 1841, and in 1843 chaired the meeting whose petition of 1,700-plus
+signatures made Concord dry. The line everybody quotes, about nothing being left to do after the White House but get drunk,
+he denies in his own voice. He is right to.</p>
+<span class="flag">⚑ “There's nothing left to do but get drunk” is legend: no primary source, unstable wording. So is the 1853 drunk-carriage arrest.</span>
+</div></div>
+
+<div class="track"><div class="num">11</div><div>
+<h3 class="t-name">An Old Friend Stands</h3>
+<p class="note">Nathaniel Hawthorne, Bowdoin, one class behind him: a shy boy from Salem who was his friend before there was
+anything to get. In 1852 Hawthorne wrote the campaign biography. His brother-in-law Horace Mann said that if it made Pierce
+great or brave it would be <em>“the greatest work of fiction he ever wrote,”</em> and Hawthorne said it cost him <em>“hundreds of
+friends, here at the north.”</em> Pierce gave him the Liverpool consulship. In 1863, with Pierce despised, Hawthorne dedicated
+his last finished book, <em>Our Old Home</em>, to him over his publisher's objection: <b>“it would be a piece of poltroonery in me
+to withdraw either the dedication or the dedicatory letter.”</b> He died in May 1864, travelling with Pierce.</p>
+</div></div>
+
+<div class="track"><div class="num">12</div><div>
+<h3 class="t-name">Render Your Verdict</h3>
+<p class="note">He died in Concord on <b>8 October 1869</b>. Grant gave a day of national mourning, and little was written. A
+statue was proposed in 1888 and blocked for decades by veterans and New Hampshire Republicans who called him a traitor: his
+1860 letter to Jefferson Davis had been seized and published, and a broadside built on a forged letter tied him to the
+Knights of the Golden Circle. In 1911 legislators were booing and hissing each other over his likeness. It was dedicated on
+<b>25 November 1914</b>, just under 45 years after his death, once the men who would not forgive him had died. He is buried in
+Concord's Old North Cemetery beside Jane and two of his sons. The title comes from a historian's article on the fight:
+<em>“History has rendered its verdict upon him.”</em></p>
+<span class="flag">⚑ The broadside is real; the charge inside it came from a fabricated letter. The song says half of it was forged.</span>
+</div></div>
+
+<h2>No recording</h2>
+<div class="closer">
+  <p><b>There is no recording of Franklin Pierce's voice, and there could not be.</b> He died in 1869; recorded sound arrived
+  about eight years later.</p>
+  <p>Album one ended on the oldest surviving recording of a president, Benjamin Harrison on a wax cylinder. This album ends without
+  one, on purpose. <b>Its closing argument is the absence.</b></p>
+</div>
+
+<h2>How this record was made</h2>
+<footer>
+  <div class="colophon">
+    Rushmore Rejects is a music project of <b>River Road Labs</b>, a one-person software-and-art studio. The research, lyrics and
+    album architecture are human-written; the vocals and instrumentation were produced with AI music tools from those lyrics,
+    performed in a custom voice built for the character, never derived from any president's real voice; the visuals are
+    AI-generated from public-domain portraiture of the real Franklin Pierce. The AI-generated content disclosure is filed with our
+    distributor on every track. <b>History's melodies are reconstructed; history's facts are not.</b>
+  </div>
+  <p class="sig">
+    Corrections welcome.<br>
+    Sources on request: the Miller Center, the Senate's inaugural records, the New Hampshire Historical Society's Pierce papers,
+    Wallner's two-volume biography, Carlin on Jane Pierce, and Connolly on the statue.<br>
+    Every ⚑ above is a legend we checked and declined to sing as fact.
+  </p>
+</footer>
+<p class="rr-more">More liner notes: <a href="/rushmore-rejects/gentleman-boss/">Gentleman Boss</a> · <a href="/rushmore-rejects/the-human-iceberg/">The Human Iceberg</a><br><a href="/">River Road Labs</a></p>
+</div>
+</body>
+</html>

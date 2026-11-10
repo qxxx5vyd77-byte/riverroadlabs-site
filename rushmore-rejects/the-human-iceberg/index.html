@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- rrl-analytics -->
+<script id="cfb" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6051cc05f89044ed8153e414e403d977"}'></script>
+<!-- /rrl-analytics -->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Human Iceberg · Rushmore Rejects</title>
+<meta name="description" content="Track-by-track receipts for The Human Iceberg, the Rushmore Rejects record about Benjamin Harrison. Every claim rated documented, contested or single-sourced.">
+<link rel="canonical" href="https://riverroadlabs.app/rushmore-rejects/the-human-iceberg/">
+<meta property="og:title" content="The Human Iceberg">
+<meta property="og:description" content="Track-by-track receipts for The Human Iceberg, the Rushmore Rejects record about Benjamin Harrison. Every claim rated documented, contested or single-sourced.">
+<meta property="og:url" content="https://riverroadlabs.app/rushmore-rejects/the-human-iceberg/">
+<meta property="og:image" content="https://riverroadlabs.app/icons/the-human-iceberg.webp">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700;6..96,900&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#E7E2D6;
+  --surface:#DDD7C8;
+  --rule:#C2BAA8;
+  --ink:#14191D;
+  --ink-soft:#4A535A;
+  --ink-faint:#78818A;
+  --brass:#9A6A22;
+  --frost:#3C6E87;
+  --stamp:#8C2F22;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B1014;
+    --surface:#121A20;
+    --rule:#27333B;
+    --ink:#E2E7EA;
+    --ink-soft:#A7B2BA;
+    --ink-faint:#6E7C86;
+    --brass:#C89446;
+    --frost:#8FB8CC;
+    --stamp:#C4574A;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B1014;
+  --surface:#121A20;
+  --rule:#27333B;
+  --ink:#E2E7EA;
+  --ink-soft:#A7B2BA;
+  --ink-faint:#6E7C86;
+  --brass:#C89446;
+  --frost:#8FB8CC;
+  --stamp:#C4574A;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Spectral",Georgia,serif;
+  font-weight:300;
+  line-height:1.62;
+  padding-inline:20px;
+  padding-block:0;
+  margin:0;
+}
+.wrap{max-width:760px;margin:0 auto}
+
+/* ---------- masthead ---------- */
+header{padding-block:56px 40px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-faint);margin:0 0 26px;
+}
+h1{
+  font-family:"Bodoni Moda",Didot,"Times New Roman",serif;
+  font-weight:900;
+  font-size:clamp(44px,11vw,86px);
+  line-height:.92;
+  letter-spacing:-.015em;
+  margin:0 0 6px;
+  text-wrap:balance;
+}
+.artist{
+  font-family:"Bodoni Moda",Didot,serif;
+  font-size:clamp(15px,3.4vw,19px);
+  font-style:italic;color:var(--ink-soft);margin:0 0 30px;
+}
+.origin{
+  border-left:3px solid var(--brass);
+  padding:2px 0 2px 20px;
+  margin:0 0 22px;
+}
+.origin p{
+  font-family:"Bodoni Moda",Didot,serif;
+  font-size:clamp(17px,4.2vw,23px);
+  font-style:italic;line-height:1.45;margin:0;
+}
+.origin em{font-style:italic;color:var(--brass);font-weight:700}
+.origin-src{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;line-height:1.65;color:var(--ink-faint);
+  margin:14px 0 0;
+}
+.lede{font-size:16px;color:var(--ink-soft);margin:0;max-width:62ch}
+
+/* ---------- facts strip ---------- */
+.facts{
+  display:flex;flex-wrap:wrap;gap:26px 34px;
+  padding-block:22px;border-bottom:1px solid var(--rule);
+}
+.fact{display:flex;flex-direction:column;gap:3px}
+.fact dt{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);
+}
+.fact dd{
+  margin:0;font-family:"IBM Plex Mono",monospace;
+  font-size:17px;font-variant-numeric:tabular-nums;color:var(--ink);
+}
+
+/* ---------- section head ---------- */
+h2{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:500;color:var(--ink-faint);
+  margin:44px 0 0;padding-bottom:10px;border-bottom:1px solid var(--rule);
+}
+
+/* ---------- track ledger ---------- */
+.track{
+  display:grid;
+  grid-template-columns:38px 1fr;
+  column-gap:16px;
+  padding-block:22px;
+  border-bottom:1px solid var(--rule);
+}
+.num{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12px;font-variant-numeric:tabular-nums;
+  color:var(--brass);padding-top:6px;letter-spacing:.06em;
+}
+.title-row{
+  display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:6px 12px;margin-bottom:6px;
+}
+.t-name{
+  font-family:"Bodoni Moda",Didot,serif;
+  font-size:clamp(21px,5vw,27px);font-weight:700;
+  line-height:1.15;margin:0;
+}
+.t-meta{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;
+  color:var(--ink-faint);font-variant-numeric:tabular-nums;
+  letter-spacing:.04em;white-space:nowrap;
+}
+.premise{margin:0 0 12px;font-size:15.5px;color:var(--ink-soft);max-width:60ch}
+.receipt{
+  background:var(--surface);
+  border-left:2px solid var(--rule);
+  padding:11px 14px;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12px;line-height:1.65;color:var(--ink-soft);
+}
+.receipt.doc{border-left-color:var(--brass)}
+.receipt.con{border-left-color:var(--frost)}
+.tag{
+  display:inline-block;font-size:9.5px;letter-spacing:.15em;
+  text-transform:uppercase;font-weight:500;
+  padding:1px 0;margin-right:8px;
+}
+.tag.doc{color:var(--brass)}
+.tag.con{color:var(--frost)}
+.quote{color:var(--ink);font-style:normal}
+
+/* ---------- omissions ---------- */
+.omit{
+  margin-top:22px;padding:20px 22px;
+  background:var(--surface);
+  border:1px solid var(--rule);
+}
+.omit p{margin:0 0 14px;font-size:15px;color:var(--ink-soft);max-width:62ch}
+.omit ul{margin:0;padding-left:0;list-style:none;display:grid;gap:11px}
+.omit li{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;
+  line-height:1.6;color:var(--ink-soft);
+  padding-left:20px;position:relative;
+}
+.omit li::before{
+  content:"✕";position:absolute;left:0;color:var(--stamp);
+}
+.omit strong{color:var(--ink);font-weight:500}
+
+/* ---------- footer ---------- */
+footer{padding-block:36px 60px}
+.credits{
+  display:grid;gap:16px;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;
+  line-height:1.7;color:var(--ink-soft);
+}
+.credits b{color:var(--ink);font-weight:500;letter-spacing:.04em}
+.colophon{
+  margin-top:28px;padding-top:20px;border-top:1px solid var(--rule);
+  font-family:"IBM Plex Mono",monospace;font-size:11px;
+  color:var(--ink-faint);line-height:1.75;
+}
+
+@media (max-width:460px){
+  .track{grid-template-columns:1fr;row-gap:4px}
+  .num{padding-top:0}
+}
+
+.rr-nav{max-width:760px;margin:0 auto;padding-top:18px;display:flex;justify-content:space-between;gap:16px;
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.rr-nav a{color:var(--ink-faint);text-decoration:none}
+.rr-nav a:hover{color:var(--ink)}
+.rr-listen{display:inline-block;margin-top:22px;padding:10px 20px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.rr-listen:hover{background:var(--ink);color:var(--paper)}
+.rr-more{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:11px;color:var(--ink-faint);line-height:1.9;margin-top:18px}
+.rr-more a{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<nav class="rr-nav"><a href="/">River Road Labs</a><a href="https://distrokid.com/hyperfollow/rushmorerejects/the-human-iceberg">Listen</a></nav>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Rushmore Rejects · Album Three · 23 October 2026</p>
+  <h1>The Human Iceberg</h1>
+  <p class="artist">Benjamin Harrison, 23rd President of the United States</p>
+
+  <div class="origin">
+    <p>“We want no more of humbug,<br>
+    For we've had enough of that.<br>
+    We want no <em>human iceberg</em>,<br>
+    And we want no <em>grandpa's hat</em>.”</p>
+    <p class="origin-src">
+      “Labor's Voice,” credited to the New York World, reprinted in the<br>
+      West Virginia Argus (Kingwood, W.Va.), 28 July 1892, p. 1.<br>
+      Library of Congress, Chronicling America.
+    </p>
+  </div>
+
+  <p class="lede">One Democratic campaign stanza carries both insults that
+  followed Harrison out of office and into obscurity: that he was cold, and
+  that he was small enough to be wearing a dead man's hat. This record is
+  named after half of it. Every claim sung here is sourced below, including
+  the ones that turned out not to be true.</p>
+  <a class="rr-listen" href="https://distrokid.com/hyperfollow/rushmorerejects/the-human-iceberg">Listen to The Human Iceberg</a>
+</header>
+
+<dl class="facts">
+  <div class="fact"><dt>Tracks</dt><dd>13</dd></div>
+  <div class="fact"><dt>Running time</dt><dd>33:30</dd></div>
+  <div class="fact"><dt>Term</dt><dd>1889–1893</dd></div>
+  <div class="fact"><dt>Popular vote, 1888</dt><dd>−90,000</dd></div>
+  <div class="fact"><dt>States admitted</dt><dd>6</dd></div>
+</dl>
+
+<h2>Track listing &amp; receipts</h2>
+
+<div class="track">
+  <div class="num">01</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">Eighteen Eighty-Nine</h3><span class="t-meta">2:19 · 92 BPM</span></div>
+    <p class="premise">He is the first president whose voice survives. You can hear him, and you still don't know who he is.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>The earliest surviving voice recording of a U.S. president. One Edison wax cylinder; per the Library of Congress only one copy survived, held at the Benjamin Harrison Presidential Site, Indianapolis. <span class="quote">“…our two countries shall continue to live side by side in peace and prosperity. Benjamin Harrison.”</span> Public domain under 17 U.S.C. § 1401.</div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">02</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">Grandpa's Hat</h3><span class="t-meta">2:33 · 98 BPM</span></div>
+    <p class="premise">Grandfather was president for thirty-one days. Democrats said the hat was too big for the boy's head; his own party wrote a song insisting it fit. Nobody said his name.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>Harrison stood 5 ft 6 in. Democrats called him “Little Ben”; Republicans answered that he was <span class="quote">“big enough to wear the hat of his grandfather, ‘Old Tippecanoe.’”</span> Great-grandfather Benjamin Harrison V signed the Declaration of Independence. His father, John Scott Harrison, is the only American who was both the son of a president and the father of a president.</div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">03</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">Came To Me</h3><span class="t-meta">3:45 · 120 BPM</span></div>
+    <p class="premise">He revived the front-porch campaign and never left Indianapolis. The country came to the house.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>Harrison addressed more than 300,000 people in 80-plus speeches from his front porch on North Delaware Street, Indianapolis, largely extemporaneous, over roughly three months, without a quotable gaffe. Delegations arrived from Union Station behind bass drums, with a cannon firing.</div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">04</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">The Human Iceberg</h3><span class="t-meta">2:05 · 90 BPM</span></div>
+    <p class="premise">The epithet, and the coldness that can actually be attributed to a named man.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>Senator Shelby Cullom of Illinois, in his memoirs: <span class="quote">“whenever he did anything for me, it was done so ungraciously that the concession tended to anger rather than please.”</span> The men who made him president formed a “Grievance Committee” to unmake him (Platt, Quay, Reed and Clarkson) over his refusal to trade appointments.</div>
+    <div class="receipt con" style="margin-top:8px"><span class="tag con">Contested</span>No originator of the phrase is documented; the Miller Center attributes it to unnamed staff. It was a general period idiom, applied to John Sherman in 1892 and to a Boston girl in 1889. The attribution to Speaker Thomas B. Reed rests on a 2019 newspaper column with no primary citation, and is not sung here as fact.</div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">05</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">A House Too New To Touch</h3><span class="t-meta">2:06 · 118 BPM</span></div>
+    <p class="premise">Electricity arrives in 1891. The family will not touch the switches.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>Electric light reached the White House in 1891 as a spillover from wiring the State, War and Navy Building: Edison generator, wires strung across the lawn, round push-switches in each room. Caroline Harrison, not Benjamin, drove the installation. The Harrisons asked Edison for a dedicated electrician: Irwin “Ike” Hoover, who stayed forty-two years.</div>
+    <div class="receipt con" style="margin-top:8px"><span class="tag con">Single-sourced</span>The fear story comes from Hoover's 1934 memoir alone, published forty-three years after the fact: <span class="quote">“the Harrison family were actually afraid to turn the lights on and off… they would burn until I returned the next morning.”</span> Quoted by the White House Historical Association, which is citing Hoover rather than corroborating him.</div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">06</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">Every Man Will Go Away</h3><span class="t-meta">3:02 · 78 BPM</span></div>
+    <p class="premise">Magnificent to ten thousand strangers. Fatal to one man in a room.</p>
+    <div class="receipt con"><span class="tag con">Contested</span><span class="quote">“Harrison can make a speech to ten thousand men and every man will go away his friend. Let him meet the same ten thousand men in private and everyone will go away his enemy.”</span> Universally quoted, never attributed to a named source. Sung on this record as <em>they said of me</em>, never as a quotation.</div>
+    <div class="receipt doc" style="margin-top:8px"><span class="tag doc">Documented</span>The counter-evidence is real: a skilled orator and one of Indiana's leading lawyers, whose political rise was built on being loaned out to speak for other candidates.</div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">07</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">Caroline</h3><span class="t-meta">2:00 · 74 BPM</span></div>
+    <p class="premise">She returned to the White House to die, fourteen days before the election, with the china unfinished and the house unbuilt. Her track is not withdrawal; it is occupation.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>Diagnosed with tuberculosis in 1891; moved to the Adirondacks in the summer of 1892 and returned to the White House to die. Died 25 October 1892, fourteen days before the election. Harrison put his campaign down while she was dying; Cleveland suspended his in deference. Daughter Mary Harrison McKee served as hostess for the rest of the term.</div>
+    <div class="receipt doc" style="margin-top:8px"><span class="tag doc">Documented</span>What she was doing when it stopped: twelve people across four generations were living in private quarters of five bedrooms, one bathroom and a hallway: rot, failing plumbing, five layers of rotted floorboards, rats. Her diary records rats on the table in the Upper Hall and one on Mr. Halford's bed; she turned ferrets loose to hunt them. She inventoried the house and ended the practice of auctioning off furnishings between administrations, founding what became the China Room. She was first President General of the DAR, and headed a committee that raised $500,000 for the Johns Hopkins medical school on the condition that it admit women. Her words to reporters: <span class="quote">“We are here four years. I do not look beyond that.”</span></div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">08</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">His Whiskers</h3><span class="t-meta">2:21 · 100 BPM</span></div>
+    <p class="premise">He bought the grandchildren a goat. The goat is better remembered than he is.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>The goat “His Whiskers,” the cart, the two children, and two Library of Congress photographs. “Baby McKee” (grandson Benjamin Harrison McKee) returns 1,991 newspaper page hits in Chronicling America, 1889–1893. Wanamaker gave the family a cottage at Cape May; Harrison paid him $10,000 for it a month later and was mocked coast to coast as though he had kept it. Period cartoon caption: <span class="quote">“What can I do when both parties insist on kicking?”</span></div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">09</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">Thirty-Five to Thirty-Four</h3><span class="t-meta">2:34 · 94 BPM</span></div>
+    <p class="premise">The strongest moral material in his record, and it is a record of defeat. One vote. That's all it ever is.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>The Lodge Federal Elections Bill died in the Senate <span class="quote">35–34, on 22 January 1891</span>: western silver Republicans let it fall in exchange for southern votes on the Sherman Silver Purchase Act. Black voting rights traded for silver coinage. Harrison had told Congress in December 1889: <span class="quote">“Every constituency in the Union is wronged.”</span> His Attorney General, William H. H. Miller, ordered prosecutions for voting-rights violations in the South; white juries would not convict or indict.</div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">10</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">Six Stars</h3><span class="t-meta">2:38 · 104 BPM</span></div>
+    <p class="premise">He redrew the flag more than anyone who ever held the office, and nobody has looked at it and thought of him since.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>Six states admitted in one term: North Dakota and South Dakota (2 Nov 1889), Montana (8 Nov), Washington (11 Nov), Idaho (3 Jul 1890), Wyoming (10 Jul 1890). More than under any other president. As a senator his efforts to admit western states were blocked by Democrats who feared they would send Republicans to Congress; they were right. Wyoming entered with women's suffrage already in its constitution.</div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">11</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">Exclusion, Answered</h3><span class="t-meta">2:24 · 80 BPM</span></div>
+    <p class="premise">In 1882 he voted against it. In 1892 he signed the harsher version. The same law appears on two consecutive records in this series, and so does the retreat.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>The Geary Act, 5 May 1892, extended Chinese exclusion ten years and required every Chinese resident to carry a permit at all times; failure meant deportation or a year of hard labour. Harrison signed it. As a senator in 1882 he had opposed the original Chinese Exclusion Act on the ground that it violated existing treaties with China.</div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">12</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">Bracketed</h3><span class="t-meta">2:10 · 96 BPM</span></div>
+    <p class="premise">The same man on both sides of him. He won without the country and lost with it.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>The only U.S. president both preceded and succeeded by the same man. In 1888 he took the office while losing the popular vote by roughly 90,000, carrying the Electoral College 233–168. In 1892 he lost by 380,000, Cleveland 277 electoral votes to his 145, the most decisive presidential election in twenty years.</div>
+  </div>
+</div>
+
+<div class="track">
+  <div class="num">13</div>
+  <div>
+    <div class="title-row"><h3 class="t-name">Recorded, Not Remembered</h3><span class="t-meta">3:33 · 116 BPM</span></div>
+    <p class="premise">The cylinder returns, uncut, and has earned the room. It kept him, and forgot him anyway.</p>
+    <div class="receipt doc"><span class="tag doc">Documented</span>After office: lectured on constitutional law at Stanford; trustee of Purdue; published <em>This Country of Ours</em> in 1897. In 1898–99 he served as chief counsel to the Republic of Venezuela in the British Guiana boundary arbitration, filed an 800-page brief and spent more than twenty-five hours in court in Paris. He lost the case. The arguments won him international renown.</div>
+  </div>
+</div>
+
+<h2>What this record does not sing</h2>
+
+<div class="omit">
+  <p>A concept album about a forgotten man is under permanent temptation to
+  improve him. These are the best stories about Benjamin Harrison, and they
+  are left off the record because no primary or institutional source could
+  be found for them.</p>
+  <ul>
+    <li><strong>The goat chase.</strong> His Whiskers bolting through the White House gates with the grandchildren in the cart and the President of the United States running down Pennsylvania Avenue after it, waving his cane. The most repeated Harrison story on the internet, and the one nobody can vouch for. The documented material is funnier.</li>
+    <li><strong>Dash the collie, and the opossums “Mr. Reciprocity” and “Mr. Protection.”</strong> Pet-trivia sourcing only.</li>
+    <li><strong>“The handshake like a wilted petunia.”</strong> Carried by a secondary work; zero hits in Chronicling America, 1888–1901. Very likely a twentieth-century characterisation, not a period line.</li>
+    <li><strong>Thomas B. Reed as the author of “human iceberg.”</strong> A 2019 column, no primary citation, no corroboration.</li>
+    <li><strong>A lifelong estrangement over the second marriage.</strong> His two adult children disapproved and did not attend the wedding; that is documented. A permanent break is not. The record sings the empty pews and stops there.</li>
+  </ul>
+</div>
+
+<h2>Credits</h2>
+
+<footer>
+  <div class="credits">
+    <div><b>Music and lyrics:</b> Matthew Malham</div>
+    <div><b>Archival audio:</b> Benjamin Harrison, recorded c. 1889 on Edison wax cylinder. Digital transfer from the G. Robert Vincent Voice Library, Michigan State University; gift of John Casaletti, Benjamin Harrison Memorial Home, Indianapolis. Public domain in the United States.</div>
+    <div><b>Principal sources:</b> Library of Congress, Chronicling America · Miller Center, University of Virginia · White House Historical Association · Indiana State Library, Indiana History Blog · Socolofsky &amp; Spetter, <em>The Presidency of Benjamin Harrison</em> · Calhoun, <em>Benjamin Harrison</em> (2005) · Cullom, <em>Fifty Years of Public Service</em></div>
+  </div>
+
+  <p class="colophon">
+    Rushmore Rejects · River Road Labs<br>
+    Human-researched, AI-produced.<br>
+    Every claim on this sheet is rated as it was rated in the lore bible that
+    preceded the lyrics: documented, contested, or single-sourced. Where the
+    evidence would not carry the line, the line was cut.
+  </p>
+</footer>
+
+<p class="rr-more">More liner notes: <a href="/rushmore-rejects/gentleman-boss/">Gentleman Boss</a> · <a href="/rushmore-rejects/handsome-frank/">Handsome Frank</a><br><a href="/">River Road Labs</a></p>
+</div>
+</body>
+</html>
