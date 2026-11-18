@@ -25,6 +25,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://riverroadlabs.app/gnome/free-page/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://riverroadlabs.app/gnome/</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
